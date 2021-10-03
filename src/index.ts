@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express";
-import * as Express from "express";
+import Express from "express";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
 import { RegisterResolver } from "./module/user/Register";
@@ -15,7 +15,7 @@ const main = async () => {
     const apolloServer = new ApolloServer({schema});
     
     const app = Express();
-
+    
     await apolloServer.start();
     apolloServer.applyMiddleware({app});
 
